@@ -17,11 +17,19 @@ function run(){
 // loop through data points and assign closest centroid
 function assignCentroids(means) {
 
-    // -------------------------------
-    //      YOUR CODE
-    // -------------------------------  
+    var dist = 0;
 
-}
+    data.forEach((datapoint) => {
+        var minDist = 10000;
+        means.forEach((centroid, i) => {
+            dist = Math.sqrt(Math.pow(datapoint.x - centroid.x, 2) + Math.pow(datapoint.y - centroid.y, 2));
+            if(dist < minDist){
+                minDist = dist;
+                datapoint.centroid = i;
+            }
+        })
+    })
+};
 
 // data points for kMeans
 var data = [

@@ -18,12 +18,15 @@ function run(){
 // pick random centroids (means)
 var pickRandomMeans = function(k) {
 
-    //  -------------------------
-    //  YOUR CODE
-    //  -------------------------
+    var randomMeans = [];
 
-    //return format:
-    // [{x:1,y:7},{x:10,y:5},{x:4,y:11}];
+    for(var i=0; i<k; i++){
+        randX = Math.floor(640 * Math.random())
+        randY = Math.floor(480 * Math.random())
+        randomMeans.push({x:randX, y:randY}) 
+    }
+    
+    return randomMeans;
 };
 
 // data points for kMeans

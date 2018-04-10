@@ -3,7 +3,7 @@ function run(){
     var means = recalculateCentroids(clusters);
 
     // graph data plus old means
-    var oldMeans = [{x:100,y:75},{x:175,y:300},{x:500,y:275}];    
+    var oldMeans = [{x:120,y:275},{x:475,y:30},{x:100,y:475}];    
     clearCanvas();
     graphClusters(clusters);    
     graphMeans(oldMeans, 'gray');
@@ -24,12 +24,26 @@ function run(){
 // calcute centroids (means) for each cluster
 function recalculateCentroids(clusters){
 
-    //  -------------------------
-    //      YOUR CODE
-    //  -------------------------
+    var means = [];
 
-    //return format:
-    // [{x:1,y:7},{x:10,y:5},{x:4,y:11}];
+    clusters.forEach((cluster, i) => {
+
+        var sumX = 0;
+        var sumY = 0;
+        var length = cluster.length;
+
+        cluster.forEach((point) => {
+            sumX += point.x;
+            sumY += point.y;
+        })
+
+        var centroidX = Math.round(sumX / length, 0);
+        var centroidY = Math.round(sumY / length, 0);
+        means[i] = {x:centroidX, y:centroidY}
+    });
+    
+    return means
+
 }
 
 
